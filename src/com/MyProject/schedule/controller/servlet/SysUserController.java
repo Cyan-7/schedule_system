@@ -76,4 +76,22 @@ public class SysUserController extends BaseController {
 
         WebUtil.writeJson(resp,result);
     }
+
+    protected void loginHomework(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HomeworkUser homeworkUser = WebUtil.readJson(req, HomeworkUser.class);
+
+        HomeworkUser metaObj = new HomeworkUser("2307200337","谢宇轩","学生");
+
+        Result result = null;
+        if (!metaObj.getUserName().equals(homeworkUser.getUserName())){
+            result = Result.build(null,ResultCodeEnum.USERNAME_ERROR);
+        } else if (!metaObj.getUserAge().equals(homeworkUser.getUserAge())){
+            result = Result.build(null,ResultCodeEnum.PASSWORD_ERROR);
+        }else {
+            result = Result.ok(null);
+        }
+
+        WebUtil.writeJson(resp,result);
+    }
+
 }

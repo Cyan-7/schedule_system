@@ -37,6 +37,7 @@ public class WebUtil {
         }
         return t;
     }
+
     // 将Result对象转换成JSON串并放入响应对象
     public static void writeJson(HttpServletResponse response, Result result){
         response.setContentType("application/json;charset=UTF-8");
